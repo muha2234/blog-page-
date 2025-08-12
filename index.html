@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A premium, classic blog for web developers with stunning visuals and advanced features.">
+  <title>Classic Developer Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+   <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f7fa;
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(135deg, #0d1b2a, #1b263b);
+  color: #fff;
+  padding: 12px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffb703;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar .logo:hover {
+  color: #8ecae6;
+}
+
+/* Menu links */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #e0e0e0;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Underline hover effect */
+.navbar ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #ffb703;
+  transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: #8ecae6;
+}
+
+.navbar ul li a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 28px;
+  height: 3px;
+  background: white;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .navbar ul {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    background: #1b263b;
+    flex-direction: column;
+    width: 220px;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: height 0.3s ease, padding 0.3s ease;
+  }
+
+  .navbar ul.show {
+    height: 230px;
+    padding: 15px 0;
+  }
+
+  .navbar ul li {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+    /* Animated Gradient Background */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(-45deg, #1e3c72, #2a5298, #1a2a6c, #b21f1f);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+      color: white;
+      text-align: center;
+      padding: 0 1rem;
+      overflow: hidden;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Text animations */
+    .hero h1, .hero p, .buttons {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .hero h1 {
+      animation-delay: 0.3s;
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      animation-delay: 0.6s;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 600px;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .buttons {
+      animation-delay: 0.9s;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background-color: #ff9800;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #e68900;
+      transform: scale(1.05);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background-color: white;
+      color: #1e3c72;
+      transform: scale(1.05);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+    /* About Section */
+.about {
+  background: linear-gradient(135deg, #f8f9fa, #e9f1f7);
+  padding: 60px 20px;
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1b263b;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.about h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #ffb703;
+  display: block;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* Layout */
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Text area */
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.about-text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-text ul li {
+  padding-left: 28px;
+  position: relative;
+  margin-bottom: 12px;
+  color: #444;
+  font-size: 1rem;
+}
+
+.about-text ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #8ecae6;
+  font-weight: bold;
+}
+
+/* Image area */
+.about-image {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.03);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text ul li {
+    text-align: left;
+  }
+}
+/* Posts Section */
+.posts {
+  background: linear-gradient(135deg, #f8f9fa, #e9f1f7);
+  padding: 60px 20px;
+}
+
+.posts h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1b263b;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.posts h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #ffb703;
+  display: block;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* Grid layout */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Post Card */
+.post {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.post img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.post h3 {
+  font-size: 1.3rem;
+  color: #1b263b;
+  margin: 15px 20px 10px;
+}
+
+.post p {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 20px 15px;
+  flex-grow: 1;
+}
+
+/* Read More Button */
+.post a {
+  display: inline-block;
+  margin: 0 20px 20px;
+  padding: 10px 16px;
+  background: #8ecae6;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.post a:hover {
+  background: #219ebc;
+}
+
+/* Hover effect */
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+/* ===== GALLERY STYLING ===== */
+.gallery {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f9f9f9, #f1f1f1);
+  text-align: center;
+}
+
+.gallery h2 {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.gallery h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #0072ff, #00c6ff);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+/* Hover overlay */
+.gallery-item::after {
+  content: "View Image";
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 114, 255, 0.85);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.gallery-item:hover::after {
+  bottom: 15px;
+  opacity: 1;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .gallery h2 {
+    font-size: 2rem;
+  }
+
+  .gallery-item img {
+    height: 200px;
+  }
+}
+/* Categories Section */
+.categories {
+  background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+  padding: 70px 20px;
+}
+
+.categories h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.categories h2::after {
+  content: "";
+  width: 70px;
+  height: 4px;
+  background: #ffb703;
+  display: block;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* Grid Layout */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Category Card */
+.category {
+  background: linear-gradient(145deg, #ffffff, #f1f5f9);
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative gradient border on hover */
+.category::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(45deg, #ffb703, #8ecae6);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.category:hover::before {
+  opacity: 1;
+}
+
+.category h4 {
+  font-size: 1.4rem;
+  color: #0d1b2a;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.category p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Hover Effect */
+.category:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* Optional: Icons for categories */
+.category-icon {
+  font-size: 2.5rem;
+  color: #8ecae6;
+  margin-bottom: 15px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .category {
+    padding: 25px 15px;
+  }
+}
+/* Section Layout */
+.contact {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #38bdf8;
+}
+
+.contact p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #cbd5e1;
+}
+
+/* Form Styling */
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #e2e8f0;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  background: #1e293b;
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  background: #334155;
+  box-shadow: 0 0 0 2px #38bdf8;
+}
+
+/* Button Styling */
+.contact-form button {
+  background: #38bdf8;
+  color: #0f172a;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #0ea5e9;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(14,165,233,0.4);
+}
+/* Footer Container */
+.footer-modern {
+  background: #0d1117;
+  color: #ffffff;
+  padding: 50px 20px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Footer Headings */
+.footer-modern h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #f39c12;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Footer About */
+.footer-about p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d1d1d1;
+}
+
+/* Quick Links */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links ul li {
+  margin-bottom: 8px;
+}
+.footer-links ul li a {
+  color: #d1d1d1;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-links ul li a:hover {
+  color: #f39c12;
+}
+
+/* Social Links */
+.footer-social a {
+  display: block;
+  margin-bottom: 8px;
+  color: #d1d1d1;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-social a:hover {
+  color: #f39c12;
+}
+
+/* Newsletter */
+.footer-newsletter input {
+  padding: 10px;
+  width: 70%;
+  border: none;
+  outline: none;
+  border-radius: 4px 0 0 4px;
+}
+.footer-newsletter button {
+  padding: 10px 15px;
+  border: none;
+  background: #f39c12;
+  color: #000;
+  font-weight: bold;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.footer-newsletter button:hover {
+  background: #d35400;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  margin-top: 30px;
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid #222;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer-newsletter input {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .footer-newsletter button {
+    width: 100%;
+    border-radius: 4px;
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar">
+  <a href="#" class="logo">MUHAZ</a>
+  <ul id="menu">
+    <li><a href="hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#posts">Post</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</nav>
+
+
+  <section class="hero">
+    <h1>Build Your Dream Website</h1>
+    <p>We create stunning, modern, and fully responsive websites that help your business stand out online.</p>
+    <div class="buttons">
+      <button class="btn btn-primary">Get Started</button>
+      <button class="btn btn-secondary">Learn More</button>
+    </div>
+  </section>
+
+
+  <main>
+    <section id="about" class="section about">
+      <h2>About This Blog</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>This blog is a tribute to the art of web development, featuring:</p>
+          <ul>
+            <li>Classic and modern design techniques.</li>
+            <li>Comprehensive tutorials on HTML, CSS, JavaScript, and frameworks.</li>
+            <li>Case studies showcasing elegant solutions to complex problems.</li>
+            <li>Trends in the ever-evolving digital world.</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          <img src="/Capture.JPG" alt="About the blog">
+        </div>
+      </div>
+    </section>
+
+    <section id="posts" class="section posts">
+      <h2>Latest Posts</h2>
+      <div class="post-grid">
+        <article class="post">
+          <img src="/Capture.JPG" alt="Responsive Design Mastery">
+          <h3>Responsive Design Mastery</h3>
+          <p>Create flexible layouts using CSS Grid and Flexbox techniques.</p>
+          <a href="#">Read More</a>
+        </article>
+        <article class="post">
+          <img src="/2d-and-3d-Building-designers-atb-tuplea-ict-concepts-online-1.png" alt="Top JavaScript Frameworks in 2025">
+          <h3>Top JavaScript Frameworks in 2025</h3>
+          <p>Discover the best tools for building modern web applications.</p>
+          <a href="#">Read More</a>
+        </article>
+        <article class="post">
+          <img src="/cropped-tuplea-website-services.png" alt="SEO for Developers">
+          <h3>SEO for Developers</h3>
+          <p>Practical strategies to improve your website's visibility.</p>
+          <a href="#">Read More</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery" class="section gallery">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="/vvv.JPG" alt="Elegant Web Design">
+        </div>
+        <div class="gallery-item">
+          <img src="/cropped-tuplea-website-services.png" alt="Modern Code Examples">
+        </div>
+        <div class="gallery-item">
+          <img src="/Capture.JPG" alt="Classic Developer Tools">
+        </div>
+        <div class="gallery-item">
+          <img src="/2d-and-3d-Building-designers-atb-tuplea-ict-concepts-online-1.png" alt="UI/UX Insights">
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="section categories">
+  <h2>Categories</h2>
+  <div class="category-grid">
+
+    <div class="category">
+      <h4>Frontend Development</h4>
+      <p>Explore HTML, CSS, JavaScript, and frameworks like React, Vue, and Angular to create stunning user interfaces.</p>
+    </div>
+
+    <div class="category">
+      <h4>Backend Development</h4>
+      <p>Dive into Node.js, Express, PHP, Python, and databases to power your web applications from behind the scenes.</p>
+    </div>
+
+    <div class="category">
+      <h4>Web Design</h4>
+      <p>Master the art of UI/UX design, color theory, typography, and responsive layouts for all devices.</p>
+    </div>
+
+    <div class="category">
+      <h4>Performance Optimization</h4>
+      <p>Learn caching, lazy loading, and advanced techniques to make your websites faster and more efficient.</p>
+    </div>
+
+    <div class="category">
+      <h4>SEO & Digital Marketing</h4>
+      <p>Boost your site's visibility with search engine optimization, analytics, and social media strategies.</p>
+    </div>
+
+    <div class="category">
+      <h4>Cybersecurity</h4>
+      <p>Understand security best practices to protect your website and users from common vulnerabilities.</p>
+    </div>
+
+    <div class="category">
+      <h4>E-Commerce Development</h4>
+      <p>Build robust online stores with payment integration, product management, and customer engagement tools.</p>
+    </div>
+
+    <div class="category">
+      <h4>Trends & Innovation</h4>
+      <p>Stay ahead of the curve with insights on the latest web technologies, AI, and industry trends.</p>
+    </div>
+
+  </div>
+</section>
+
+  <section id="contact" class="section contact">
+  <h2>Contact Me</h2>
+  <p>Have questions or collaboration ideas? Reach out below:</p>
+  <form class="contact-form">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Your Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+  </main>
+
+ <footer class="footer-modern">
+  <div class="footer-container">
+    <!-- About Section -->
+    <div class="footer-about">
+      <h3>About This Blog</h3>
+      <p>
+        Welcome to Classic Developer Blog — a space where I share tutorials,
+        tips, and insights on web development, design trends, and coding best
+        practices to help you grow your skills.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-social">
+      <h3>Follow Me</h3>
+      <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="#"><i class="fab fa-github"></i> GitHub</a>
+      <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <h3>Stay Updated</h3>
+      <p>Subscribe to my newsletter to get updates on new posts and resources.</p>
+      <form>
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Classic Developer Blog. All Rights Reserved.</p>
+  </div>
+</footer>
+  <script>
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+
+hamburger.addEventListener("click", () => {
+  menu.classList.toggle("show");
+});
+</script>
+
+
+</body>
+</html>
